@@ -2,10 +2,8 @@ import socialLinks from "../../constants/socialLinks";
 
 function SocialIcons() {
   return (
-    <div className="flex gap-6 mt-10">
-
+    <div className="mt-10 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
       {socialLinks.map((social) => {
-
         const Icon = social.icon;
 
         return (
@@ -14,14 +12,14 @@ function SocialIcons() {
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-3xl text-gray-400 hover:text-blue-500 transition duration-300 hover:-translate-y-1"
+            aria-label={social.name}
+            title={social.name}
+            className="text-[30px] text-gray-400 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_#22d3ee]"
           >
             <Icon />
           </a>
         );
-
       })}
-
     </div>
   );
 }

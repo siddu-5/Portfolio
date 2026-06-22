@@ -1,5 +1,5 @@
 import navLinks from "../../constants/navLinks";
-
+import { HiOutlineArrowDownTray } from "react-icons/hi2";
 function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-[#030712]/70 border-b border-gray-800">
@@ -32,7 +32,8 @@ function Navbar() {
         {/* Resume Button */}
         <a
           href="/resume.pdf"
-          className="hidden md:block px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition duration-300">
+          className="hidden md:flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-white transition-all duration-300 hover:bg-blue-700 hover:scale-105">
+          <HiOutlineArrowDownTray size={18} />
           Resume
         </a>
       </nav>
