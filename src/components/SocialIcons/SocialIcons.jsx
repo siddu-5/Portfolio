@@ -1,23 +1,58 @@
 import socialLinks from "../../constants/socialLinks";
+import { motion } from "framer-motion";
 
 function SocialIcons() {
   return (
-    <div className="mt-10 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
-      {socialLinks.map((social) => {
+    <div className="mt-10 flex items-center gap-5">
+      {socialLinks.map((social, index) => {
         const Icon = social.icon;
 
         return (
-          <a
+          <motion.a
             key={social.name}
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={social.name}
-            title={social.name}
-            className="text-[30px] text-gray-400 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-110 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_#22d3ee]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.6 + index * 0.1,
+              duration: 0.4,
+            }}
+            whileHover={{
+              y: -6,
+              scale: 1.12,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            className="
+              group
+              flex
+              h-14
+              w-14
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/10
+              bg-white/5
+              text-gray-300
+              backdrop-blur-md
+              transition-all
+              duration-300
+              hover:border-cyan-400
+              hover:bg-cyan-500/10
+              hover:text-cyan-400
+              hover:shadow-lg
+              hover:shadow-cyan-500/25
+            "
           >
-            <Icon />
-          </a>
+            <Icon
+              size={24}
+              className="transition-transform duration-300 group-hover:scale-110"
+            />
+          </motion.a>
         );
       })}
     </div>
